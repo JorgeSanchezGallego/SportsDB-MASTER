@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import bgImage from '../assets/69642404326314-92167603.webp'
+import bgImage from '../assets/lv.webp'
 
 const Home = () => {
     const premierLeague = {
@@ -9,7 +9,7 @@ const Home = () => {
             logo: 'https://r2.thesportsdb.com/images/media/league/badge/gasy9d1737743125.png'
         }
     
-  return (
+    return (
     <div className='home-container'>
         <div className='hero-container'>
             <h1 className='hero-title'>The Premier League Hub</h1>
@@ -17,8 +17,8 @@ const Home = () => {
         </div>
 
         <div className='leagues-container'>
-            <h2 className='leagues-title'>Disponible leagues</h2>
-            <div className='leagues-grid'>
+            <h2 className='leagues-title'>Available Leagues</h2>
+            <div className='leagues'>
                         <Link to={`/league/${premierLeague.id}`} key={premierLeague.id} className='league-link'>
                             <article className='league-card'>
                                 <img src={premierLeague.logo} alt={premierLeague.name} className='league-logo' />

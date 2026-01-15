@@ -9,7 +9,7 @@ const League = () => {
     if (error) return <div>Error: {error}</div>
     return (
     <div className='league-container'>
-        <Link to="/" className='back-button'>Home</Link>
+        <Link to="/" className='btn-back'>Home</Link>
         <h1 className='league-title'>
             {
                 data?.teams ? data.teams[0].strLeague : 'Liga'

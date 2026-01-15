@@ -3,6 +3,8 @@ import { useParams, Link, useLocation } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import { useForm } from 'react-hook-form'
 import { useMembership } from '../context/MembershipContext'
+import Form from '../components/MembershipForm'
+import MembershipForm from '../components/MembershipForm'
 
 const Team = () => {
     const {id} =useParams()
@@ -11,18 +13,7 @@ const Team = () => {
 
     const { data: playersData, loading: loadingPlayers, error: errorPlayers} = useFetch(`https://www.thesportsdb.com/api/v1/json/3/lookup_all_players.php?id=${id}`)
     
-    const { joinTeam, isMemberOf} =useMembership()
 
-    const isAlreadyMember = isMemberOf(id)
-
-    const {register, handleSubmit, formState: {errors}} =useForm()
-    const [email, setEmail] = useState("")
-
-    const onSubmit = (data) => {
-        console.log(data);
-        setEmail(data.email)
-        joinTeam(id)
-    }
 
 
     if (!team) return (
@@ -33,7 +24,7 @@ const Team = () => {
     )
     return (
     <div className='team-page-container'>
-        <Link to={`/league/${team.idLeague}`} className='back-button'>Back</Link>
+        <Link to={`/league/${team.idLeague}`} className='btn-back'>Back</Link>
         <header className='team-header'>
             <img src={team.strBadge} alt={team.strTeam} className='team-detail-badge'/>
             <div className='team-info'>
@@ -49,7 +40,7 @@ const Team = () => {
                 <p>{team.strDescriptionEN}</p>
             </div>
             <div className='team-jersey'>
-                <h3>Equipment</h3>
+                <h3>Home Kit</h3>
                 <img src={team.strEquipment} alt={team.strTeam} className='jersey-img' />
             </div>
         </section>
@@ -70,44 +61,10 @@ const Team = () => {
                 }
             </div>
         </section>
-
-        <section className='membership-section'>
-                <div className='form-container'>
-                    <h2>Join Us!</h2>
-                    <p>Support the team!</p>
-                    {!isAlreadyMember ? (
-                        <form onSubmit={handleSubmit(onSubmit)} className='membership-form'>
-                            <div className='form-group'>
-                                <label htmlFor="name">Name</label>
-                                <input 
-                                    type="text"
-                                    id='name'
-                                    className='form-input'
-                                    {...register("name", {required: true})}
-                                    />
-                                    {errors.name && <span>Name required</span>}
-                            </div>
-                            <div className='form-group'>
-                                <label htmlFor="email">Email</label>
-                                <input 
-                                    type="text"
-                                    id='email'
-                                    className='form-input'
-                                    {...register("email", {required: true})} 
-                                />
-                                {errors.email && <span>Email required</span>}
-                            </div>
-                            <button type='submit' className='btn-submit'>Join!</button>
-                        </form>
-                    ) : (
-                        <div className='succes-message'>
-                            <h3>Ya eres parte del equipo</h3>
-                        </div>
-                    )}
-                </div>
-        </section>
+        <MembershipForm/>
+        
     </div>
-  )
+    )
 }
 
 export default Team

@@ -61,7 +61,7 @@ const Team = () => {
                 }
             </div>
         </section>
-        <MembershipForm/>
+        <MembershipForm id={id} teamName={team.strTeam}/>
         
     </div>
     )

@@ -1,7 +1,6 @@
-import React from 'react'
-import logoImage from '../assets/logo-transparent.png'
+import logoImage from '../assets/logo-transparent.png' // Importación de imagen
 
-const Footer = () => {
+const Footer = () => { // Componente footer 
     return (
     <footer className='app-footer'>
         <div className='container-copyright'>

@@ -1,9 +1,8 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import bgImage from '../assets/lv.webp'
+import bgImage from '../assets/lv.webp' //Importamos imagen
 
-const Home = () => {
-    const premierLeague = {
+const Home = () => { 
+    const premierLeague = { //Ligas que queremos mostrar
             name: 'Premier League',
             id: '4328',
             logo: 'https://r2.thesportsdb.com/images/media/league/badge/gasy9d1737743125.png'
@@ -19,7 +18,7 @@ const Home = () => {
         <div className='leagues-container'>
             <h2 className='leagues-title'>Available Leagues</h2>
             <div className='leagues'>
-                        <Link to={`/league/${premierLeague.id}`} key={premierLeague.id} className='league-link'>
+                        <Link to={`/league/${premierLeague.id}`} key={premierLeague.id} className='league-link'> {/*Si clickamos en el logo, nos lleva a la siguiente pagina*/}
                             <article className='league-card'>
                                 <img src={premierLeague.logo} alt={premierLeague.name} className='league-logo' />
                                 <h3 className='league-name'>{premierLeague.name}</h3>
@@ -30,7 +29,7 @@ const Home = () => {
         </div>
         
     </div>
-  )
+    )
 }
 
 export default Home

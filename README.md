@@ -12,7 +12,7 @@
 ## 🔗 Despliegue (Deploy)
 
 Puedes ver el proyecto funcionando en vivo aquí:
-👉 **[THE PREMIER LEAGUE HUB](AQUÍ_PEGA_TU_LINK_DE_VERCEL)**
+👉 **[THE PREMIER LEAGUE HUB](https://premierleaguehub.vercel.app/)**
 
 ---
 
